@@ -19,8 +19,9 @@ local reversedString = ReverseWords( googleString )
 
 print( reversedString )
 
-io.input( "input.txt" )
-io.output( "output.txt" )
+local file = "input"
+io.input( file..".in" )
+io.output( file..".out" )
 
 local numCases = tonumber( io.read() ) or 0
 print( "NumCases: "..numCases )
