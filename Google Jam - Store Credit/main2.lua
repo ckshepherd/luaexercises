@@ -17,13 +17,22 @@ for case=1,numCases do
 		itemprices[#itemprices+1] = tonumber( itemPrice )
 	end
 	
-	print( "Credit: " .. credit )
-	print( "Num Items: " .. numitems )
-	print( "Item prices: " .. table.concat( itemprices, ", " ) )
+	--print( "Credit: " .. credit )
+	--print( "Num Items: " .. numitems )
+	--print( "Item prices: " .. table.concat( itemprices, ", " ) )
 	
+	local item1,item2
+	for i=(1),(#itemprices-1) do
+		for j=(i+1),(#itemprices) do
+			if itemprices[i] + itemprices[j] == credit then
+				item1 = i
+				item2 = j
+				break
+			end
+		end
+	end
 	
-	
-	local answer = string.format( "Case #%d:", case )
+	local answer = string.format( "Case #%d: %d %d", case, item1, item2 )
 	print( answer )
 end
 --"Case #1: "
