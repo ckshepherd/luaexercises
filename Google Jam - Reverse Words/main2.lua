@@ -29,4 +29,5 @@ for case=1,numCases do
 	local line = io.read()
 	local answer = string.format( "Case #%d: %s", case, ReverseWords( line ) )
 	print( answer )
+	io.write( answer.."\n" )
 end
