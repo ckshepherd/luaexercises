@@ -22,10 +22,11 @@ print( reversedString )
 io.input( "input.txt" )
 io.output( "output.txt" )
 
-while true do
+local numCases = tonumber( io.read() ) or 0
+print( "NumCases: "..numCases )
+
+for case=1,numCases do
 	local line = io.read()
-	if not line then
-		break
-	end
-	print ( line )
+	local answer = string.format( "Case #%d: %s", case, ReverseWords( line ) )
+	print( answer )
 end
