@@ -6,6 +6,16 @@ local numCases = tonumber( firstLine )
 
 print ( "Num Cases: " .. numCases ) 
 
+function FindBestStoreCredit( credit, itemprices )
+	for i=(1),(#itemprices-1) do
+		for j=(i+1),(#itemprices) do
+			if itemprices[i] + itemprices[j] == credit then
+				return i,j
+			end
+		end
+	end
+end
+
 for case=1,numCases do
 	
 	local credit = tonumber( io.read() )
@@ -21,16 +31,7 @@ for case=1,numCases do
 	--print( "Num Items: " .. numitems )
 	--print( "Item prices: " .. table.concat( itemprices, ", " ) )
 	
-	local item1,item2
-	for i=(1),(#itemprices-1) do
-		for j=(i+1),(#itemprices) do
-			if itemprices[i] + itemprices[j] == credit then
-				item1 = i
-				item2 = j
-				break
-			end
-		end
-	end
+	local item1,item2 = FindBestStoreCredit( credit, itemprices )
 	
 	local answer = string.format( "Case #%d: %d %d", case, item1, item2 )
 	print( answer )
