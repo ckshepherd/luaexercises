@@ -1,20 +1,20 @@
 googleString = "this is a test foobar all your base class pony along"
 
-function reverseWords(s)
-	local newWords = ""
+function ReverseWords(s)
+	-- Tokenize
 	local words = {}
 	for a in s:gmatch("[^%s]+") do
 			table.insert(words,a)
 	end
 	
-	-- iterate through table "words" backwards. Concat into empty string "newWords".
-	for i = #words,1,-1 do
-			newWords = newWords..words[i].." "
+	local reversed = {}
+	for i = 1,#words do
+		reversed[i] = words[#words-i+1]
 	end
-	return newWords
+	
+	return table.concat(reversed," ")
 end
 
-
-local reversedString = reverseWords( googleString )
+local reversedString = ReverseWords( googleString )
 
 print( reversedString )
