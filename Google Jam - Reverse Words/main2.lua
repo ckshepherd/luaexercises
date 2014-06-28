@@ -18,3 +18,14 @@ end
 local reversedString = ReverseWords( googleString )
 
 print( reversedString )
+
+io.input( "input.txt" )
+io.output( "output.txt" )
+
+while true do
+	local line = io.read()
+	if not line then
+		break
+	end
+	print ( line )
+end
