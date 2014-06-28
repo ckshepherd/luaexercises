@@ -1,5 +1,6 @@
-io.input( "input.in" )
-io.output( "output.in" )
+local file = "input"
+io.input( file..".in" )
+io.output( file..".out" )
 
 local firstLine = io.read()
 local numCases = tonumber( firstLine )
@@ -35,7 +36,6 @@ for case=1,numCases do
 	
 	local answer = string.format( "Case #%d: %d %d", case, item1, item2 )
 	print( answer )
+	
+	io.write( answer.."\n" )
 end
---"Case #1: "
---"Case #2: "
---"Case #3: "
