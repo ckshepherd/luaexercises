@@ -16,22 +16,19 @@ io.output(file..".out")
 function DecodeMessage(letters)
   local previousMatch = nil
 	local output = {}
-  local firstIndex = nil
-	for curLetter in letters:gmatch("%a") do
+	for curLetter in letters:gmatch("%w") do
 		local letterKey = KeyMap[curLetter]
-		local firstIndex = letterKey[1]
-    local firstLetterInKey = firstIndex
+		local firstLetterInKey = string.sub(letterKey, 1 ,1)
 		if firstLetterInKey ~= previousMatch then
 			output[#output+1] = letterKey 
-      -- parse through the value so that the program knows the same digit is contatined within the value during this check.
+
 		else
 			insertBreak = ""..letterKey
 			output[#output+1] = insertBreak
 		end
 		
-    previousMatch = firstLetterInKey
---		previousMatch = letterKey[#letterKey-1][1]
-		
+   previousMatch = firstLetterInKey
+    
 	end
   
   --print ("Index: " .. letterKey[0])
