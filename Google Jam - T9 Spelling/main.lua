@@ -7,23 +7,23 @@ KeyMap = {['a']= "2", ['b']= "22", ['c']= "222",
 		['p']= "7", ['q']= "77", ['r']= "777", ['s']= "7777",
 		['t']= "8", ['u']= "88", ['v']= "888", 
 		['w']= "9", ['x']= "99", ['y']= "999", ['z']= "9999",
-		[':']= "0"}
+		[' ']= "0"}
 		
-local file = "input"
+local file = "C-large-practice"
 io.input(file..".in")
 io.output(file..".out")
 
 function DecodeMessage(letters)
   local previousMatch = nil
 	local output = {}
-	for curLetter in letters:gmatch("%w") do
+	for curLetter in letters:gmatch("[ %w]") do
 		local letterKey = KeyMap[curLetter]
 		local firstLetterInKey = string.sub(letterKey, 1 ,1)
 		if firstLetterInKey ~= previousMatch then
 			output[#output+1] = letterKey 
 
 		else
-			insertBreak = ""..letterKey
+			insertBreak = " "..letterKey
 			output[#output+1] = insertBreak
 		end
 		
@@ -31,15 +31,10 @@ function DecodeMessage(letters)
     
 	end
   
-  --print ("Index: " .. letterKey[0])
-  --print("Letters: " .. letters)
-	--print("Numbers: " .. table.concat(output,""))
-  
   local result = table.concat(output,"")
   return result
 	
 end
-
 
 local numCases = tonumber(io.read()) or 0
 print("NumCases: "..numCases)
